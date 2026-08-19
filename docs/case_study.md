@@ -149,7 +149,7 @@ Incentive Cost
 4. Strategy-Level Analysis
 
 The first executive-level view compares activity change across incentive strategies.
-![Strategy Trip Change](images/strategy_trip_change.png)
+![Strategy Trip Change](https://raw.githubusercontent.com/silverfang007/driver-incentive-optimization/main/docs/images/strategy_trip_change.png)
 
 What does this chart tell us?
 
