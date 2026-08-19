@@ -68,21 +68,9 @@ A better question is:
 
 This distinction matters because incentives have a cost.
 
-Consider two drivers.
+A highly active driver may continue participating even without an incentive, while a moderately active driver may respond strongly to a targeted intervention.
 
-Driver A — Already highly active
-
-A driver may already have strong marketplace participation.
-
-Giving this driver an incentive could produce some additional activity, but part of that activity may have occurred without the incentive.
-
-Driver B — Moderately active but responsive
-
-Another driver may have moderate historical activity but respond strongly to a targeted intervention.
-
-The same incentive budget could therefore produce a larger incremental impact.
-
-This creates an optimization problem:
+Therefore, the analytical objective is:
 
 Allocate incentive spend toward behavioral segments where the expected incremental response is strongest.
 
@@ -116,8 +104,6 @@ Low Activity	Lower marketplace participation
 At Risk / Declining	Weak or declining engagement
 
 The segmentation is based on pre-incentive behavior so that the intervention does not influence the segment definition.
-
-This is important when evaluating treatment response.
 
 Stage 3 — Incentive Strategies
 
@@ -158,62 +144,71 @@ Incremental Trips per Incentive Cost =
 Trip Change
 /
 Incentive Cost
-
-These metrics allow the analysis to move from simple activity reporting toward business decision-making.
-
 4. Strategy-Level Analysis
 
 The first executive-level view compares activity change across incentive strategies.
 
-How to interpret this view
+What does this chart tell us?
 
-The purpose of this comparison is not simply to identify the strategy with the highest post-incentive activity.
+The purpose of this comparison is not simply to identify the strategy with the highest activity.
 
-The more important question is whether the observed activity change is large enough to justify the associated incentive investment.
+The more important question is whether the activity increase justifies the associated incentive investment.
 
-This leads to a more useful business question:
+This creates a more useful decision framework:
 
 Which strategy produces the strongest incremental response for the available budget?
 
-A production decision would therefore combine activity response with incentive cost rather than optimizing volume alone.
+A production decision should therefore combine activity response with incentive cost rather than optimizing volume alone.
 
 5. Segment-Level Analysis
 
 Marketplace averages can hide important behavioral differences.
 
-A strategy that performs moderately well overall may perform extremely well for one segment and poorly for another.
+A strategy that performs moderately well overall may perform very differently across individual driver segments.
 
-The analysis therefore breaks the response down by behavioral segment.
+The analysis therefore evaluates the response across behavioral groups.
 
 Broad Incentive Response
 
-The broad strategy provides a useful benchmark for understanding how different driver segments respond when incentives are distributed without highly selective targeting.
+The broad strategy provides a benchmark for understanding how driver segments respond when incentives are distributed across the broader population.
 
-The key analytical question is:
+Interpretation
+
+The key question is:
 
 Does the response vary enough across segments to justify more selective allocation?
 
+If some segments show substantially stronger response than others, a blanket incentive strategy may not be the most efficient approach.
+
 Targeted Incentive Response
 
-The targeted strategy allows the analysis to examine whether selected behavioral segments respond differently when the intervention is more focused.
+The targeted strategy focuses the intervention on selected behavioral segments.
 
-This is where segmentation becomes useful for business decision-making.
+Interpretation
 
-Instead of asking:
+This analysis helps answer:
+
+Which driver segments are most responsive to targeted incentives?
+
+The goal is not simply to increase activity.
+
+The goal is to identify where incremental activity can be generated efficiently.
+
+This changes the business question from:
 
 "Should we incentivize drivers?"
 
-the question becomes:
+to:
 
 "Which drivers should we incentivize, and how much should we spend?"
 
-6. Control Group
+Control Group Response
 
-The control group establishes the baseline for interpreting changes in marketplace activity.
+The control group provides the baseline against which incentive-driven changes should be interpreted.
 
-This matters because activity can change naturally even when no intervention is applied.
+Why the control matters
 
-For example, marketplace activity can be affected by:
+Marketplace activity can change naturally because of:
 
 seasonality
 day-of-week patterns
@@ -225,9 +220,9 @@ other marketplace interventions
 
 Therefore, a production experiment should compare treatment performance against an appropriate control group rather than interpreting pre/post movement in isolation.
 
-7. Key Analytical Insight
+6. Key Analytical Insight
 
-The central insight from the framework is:
+The central insight from this framework is:
 
 Marketplace participants are unlikely to respond uniformly to incentives.
 
@@ -249,7 +244,7 @@ Budget Allocation
 
 This turns segmentation from a descriptive exercise into a decision-making tool.
 
-8. Business Recommendation
+7. Business Recommendation
 
 The analysis supports moving away from a default assumption that incentives should be distributed uniformly.
 
@@ -275,7 +270,7 @@ Compare treatment outcomes with an appropriate control group.
 
 Refresh segmentation and incentive allocation as marketplace behavior changes.
 
-9. Decision Framework
+8. Decision Framework
 
 An executive decision should balance four dimensions.
 
@@ -311,9 +306,11 @@ The decision framework becomes:
 
 The best strategy is therefore not necessarily the one with the highest raw activity.
 
-It is the strategy that produces the best balance of incremental impact, efficiency, quality and sustainability.
+It is the strategy that produces the best balance of:
 
-10. What I Would Do in Production
+incremental impact + efficiency + quality + sustainability
+
+9. What I Would Do in Production
 
 This portfolio analysis uses a simplified framework and synthetic data.
 
@@ -355,7 +352,7 @@ customer wait time
 driver utilization
 incentive cost
 marketplace health
-11. From Analysis to Executive Story
+10. From Analysis to Executive Story
 
 A useful market insight should be expressible in a simple structure.
 
@@ -387,7 +384,7 @@ ACTION
 
 Target responsive segments and validate incremental impact through controlled experimentation.
 
-12. Why This Framework Is Reusable
+11. Reusable Analytics Framework
 
 The same analytical approach can be applied to many marketplace and product problems:
 
@@ -420,7 +417,7 @@ The value is the ability to answer:
 
 What should the business do differently because of what the data is telling us?
 
-13. Technical Implementation
+12. Technical Implementation
 Python
 
 Python is used for:
@@ -453,7 +450,7 @@ sql/
 ├── 02_driver_segmentation.sql
 ├── 03_incentive_response.sql
 └── 04_segment_summary.sql
-14. Repository Structure
+13. Repository Structure
 driver-incentive-optimization/
 │
 ├── README.md
@@ -481,13 +478,11 @@ driver-incentive-optimization/
 └── src/
     ├── generate_synthetic_data.py
     └── analyze_incentives.py
-15. Reproduce the Analysis
+14. Reproduce the Analysis
 
 Clone the repository:
 
 git clone https://github.com/silverfang007/driver-incentive-optimization.git
-
-
 cd driver-incentive-optimization
 
 Create a virtual environment:
@@ -513,7 +508,7 @@ python src/analyze_incentives.py
 The analysis outputs are generated under:
 
 data/outputs/
-16. Limitations
+15. Limitations
 
 This is a portfolio simulation using synthetic marketplace data.
 
@@ -526,9 +521,13 @@ observed pre/post changes should not be interpreted as causal
 actual incentive economics would require real cost and contribution data
 production deployment would require controlled experimentation
 
-The purpose of this project is to demonstrate the data → insight → narrative → decision workflow.
+The purpose of this project is to demonstrate the:
 
-17. Portfolio Disclaimer
+Data → Insight → Narrative → Decision
+
+workflow.
+
+16. Portfolio Disclaimer
 
 This project does not contain:
 
@@ -541,7 +540,7 @@ confidential datasets from previous employers
 
 All marketplace data used in this portfolio project is synthetic.
 
-18. Final Takeaway
+17. Final Takeaway
 
 The core lesson from the analysis is simple:
 
@@ -566,13 +565,11 @@ BUSINESS DECISION
 That is the foundation of a scalable market insights function.
 
 About the Author
-
 Amit Shah
 
 Senior Data & Product Analytics Professional with 9.5+ years of experience across marketplace, payments, retail, financial services and data-driven product environments.
 
-Core areas:
-
+Core Areas
 SQL
 Python
 Product Analytics
@@ -586,5 +583,4 @@ Statistical Analysis
 Executive Storytelling
 Project Repository
 
-GitHub:
-https://github.com/silverfang007/driver-incentive-optimization
+View the GitHub repository
