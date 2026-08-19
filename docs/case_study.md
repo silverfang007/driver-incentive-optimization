@@ -116,10 +116,12 @@ Drivers receive no incentive.
 Broad Incentive
 
 The incentive is distributed across the broader driver population.
+![Broad Incentive Segment Response](images/broad_segment_response.png)
 
 Targeted Incentive
 
 The incentive strategy is focused on selected behavioral segments.
+![Targeted Incentive Segment Response](images/targeted_segment_response.png)
 
 The purpose is to compare both:
 
@@ -147,6 +149,7 @@ Incentive Cost
 4. Strategy-Level Analysis
 
 The first executive-level view compares activity change across incentive strategies.
+![Strategy Trip Change](images/strategy_trip_change.png)
 
 What does this chart tell us?
 
